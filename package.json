@@ -1,0 +1,27 @@
+{
+  "name": "ts-vue-jsx-transform-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --watch",
+    "start": "node entry.ts",
+    "vue": "ts-node runner.tsx"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^10.5.5",
+    "@types/vue": "^2.0.0",
+    "ts-is-kind": "^1.0.0",
+    "ts-loader": "^4.4.2",
+    "ts-node": "^7.0.0",
+    "typescript": "^3.0.1",
+    "vue": "^2.5.17",
+    "webpack": "^4.16.4"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.0"
+  }
+}
