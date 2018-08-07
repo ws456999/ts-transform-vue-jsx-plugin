@@ -37,5 +37,13 @@ function compile(sourceCode: string) {
 }
 
 // import Button from "antd/lib/button";
-let a = compile('<h1 what="123" ttt="1"><span>ssss</span>123</h1>')
+let a = compile(`
+<div what={a}>
+  {
+    [1,2,3].map(v => {
+      return (<h1 class="myname">123</h1>)
+    })
+  }
+</div>
+`)
 console.log(a)

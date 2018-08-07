@@ -6,7 +6,7 @@ function render (render) {
   })._render()
 }
 // const vnode = render(h => <div>test</div>)
-const vnode = render(h => 
+const vnode = render(h =>
   {
     console.log(h('h1', '123'))
   }
