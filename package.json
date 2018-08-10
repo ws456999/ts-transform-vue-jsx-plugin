@@ -6,14 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --watch",
-    "start": "node entry.ts",
-    "vue": "ts-node runner.tsx"
+    "start": "node entry.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^10.5.5",
     "@types/vue": "^2.0.0",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "ts-is-kind": "^1.0.0",
     "ts-loader": "^4.4.2",
     "ts-node": "^7.0.0",

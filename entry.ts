@@ -1,2 +1,2 @@
 require('ts-node').register()
-require('./runner.tsx')
+require('./src/runner.tsx')
