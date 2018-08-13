@@ -25,20 +25,7 @@ function compile(sourceCode: string) {
 let a = compile(`
 function render (h) {
   return (
-    <input
-      checked
-      type="text"
-      id="foo"
-      domPropsInnerHTML="bar"
-      onClick={this.clickHandler}
-      nativeOnClick={this.nativeClickHandler}
-      class={{ foo: true, bar: false }}
-      style={{ color: 'red', fontSize: '14px' }}
-      key="key"
-      ref="ref"
-      refInFor
-      slot="slot">
-    </input>
+    <input value={'some jsx expression'} />
   )
 }
 `)

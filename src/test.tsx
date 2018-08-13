@@ -1,4 +1,5 @@
-function a (h) {
-  return <div> 123 </div>
+const Test = {}
+function a () {
+  return render(h => <Test/>)
 }
 console.log(a.toString())
