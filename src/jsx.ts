@@ -20,7 +20,6 @@ import groupProps from './utils/group-props'
 *
 */
 
-
 function transformer(
   ctx: ts.TransformationContext
 ): ts.Transformer<ts.SourceFile> {

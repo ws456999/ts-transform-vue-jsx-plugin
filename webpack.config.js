@@ -1,15 +1,13 @@
 
-var path = require('path')
+const path = require('path')
+const tsJsxPlugin = require('./lib/jsx.js').default
 
 module.exports = {
   target: 'node',
-  entry: './runner.tsx',
+  entry: './src/test.tsx',
   mode: 'development',
   output: {
-    path: path.resolve(`${__dirname}`),
-    filename: 'ts-vue-jsx-transformer.min.js',
-    library: 'ts-vue-jsx-transformer',
-    libraryTarget: 'umd'
+    filename: './bundle.js'
   },
   resolve: {
     extensions: ['.js', '.json', '.ts', '.tsx'],
@@ -17,7 +15,14 @@ module.exports = {
   module: {
     rules: [{
       test: /\.tsx?$/,
-      use: 'ts-loader'
+      use: {
+        loader: 'ts-loader',
+        options: {
+          getCustomTransformers: () => ({
+            before: [tsJsxPlugin],
+          })
+        }
+      }
     }]
   }
 }

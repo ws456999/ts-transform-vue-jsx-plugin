@@ -1,48 +1,6 @@
-// {
-//   // "include": [
-//   //   "src/**/*"
-//   // ],
-//   "exclude": [
-//     "node_modules"
-//   ],
-//   "compilerOptions": {
-//     "types": [
-//       "node",
-//       // "vue"
-//     ],
-//     "typeRoots": [
-//       // "node_modules/@types"
-//     ],
-//     "baseUrl": ".",
-//     "paths": {
-//       "@/*": ["*", "src/*"],
-//       // "vue": ["node_modules/vue/dist/vue.js"]
-//     },
-//     "jsx": "preserve",
-//     "jsxFactory": "h",
-//     "allowSyntheticDefaultImports": true,
-//     "experimentalDecorators": true,
-//     "allowJs": true,
-//     // "module": "esnext",
-//     "target": "es5",
-//     "moduleResolution": "node",
-//     "isolatedModules": true,
-//     "lib": [
-//       "dom",
-//       "es5",
-//       "es6",
-//       "es7",
-//       "es2015.promise"
-//     ],
-//     "sourceMap": true,
-//     "pretty": true
-//   }
-// }
-
-
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es5",
     "jsx": "preserve",
     "jsxFactory": "h",
     "lib": [
