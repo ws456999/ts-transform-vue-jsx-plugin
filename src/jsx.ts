@@ -83,7 +83,7 @@ function createJsxCall(
 ) {
     // 获取attr
     const attributes = openingElement.attributes.properties
-    let tag = openingElement.tagName.getText()
+    let tagName = openingElement.tagName.getText()
     const typeAttribute = attributes.find(attr => attr.name.getText() && attr.name.getText() === 'type')
     const type = typeAttribute && ts.createStringLiteral(
       (typeAttribute as ts.JsxAttribute).initializer && (typeAttribute as ts.JsxAttribute).initializer.getText() ? (typeAttribute as ts.JsxAttribute).initializer.getText() : null
@@ -96,25 +96,27 @@ function createJsxCall(
     // if must use prop
     attrs = attrs.map(v => {
       let name = (v as ts.JsxAttribute).name.getText()
-      if (mustUseProp(tag, type, name)) {
-        return  ts.createJsxAttribute(ts.createIdentifier(`domProps-${name}`), null)
+      if (mustUseProp(tagName, type, name)) {
+        return  ts.createJsxAttribute(ts.createIdentifier(`domProps-${name}`), (v as ts.JsxAttribute).initializer)
       }
       return v
     })
     let props = buildOpeningElementAttributes(attrs)
 
     // 如果有children 的话
-    let children: any = []
+    let children: any = ts.createArrayLiteral([])
     if (nodeChilds && nodeChilds.length) {
       children = ts.createArrayLiteral(
         nodeChilds.filter(v => v).map(v => visitor(v))
       )
     }
 
+    let tag = isCompatTag(tagName) ? ts.createLiteral(tagName) : ts.createIdentifier(tagName)
+
     return ts.createCall(
       ts.createIdentifier('h'),
       [],
-      [ts.createLiteral(openingElement.tagName.getText()), props, children]
+      [tag, props, children]
     )
 }
 
@@ -181,6 +183,10 @@ function convertAttribute (node): ts.PropertyAssignment {
  */
 function convertAttributeValue (node: ts.Identifier): ts.Expression {
   return kind.isJsxExpression(node) ? node.expression : node
+}
+
+function isCompatTag(tagName) {
+  return !!tagName && /^[a-z]/.test(tagName);
 }
 
 export default transformer

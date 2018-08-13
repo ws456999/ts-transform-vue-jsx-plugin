@@ -59,7 +59,7 @@ export default function groupProps (props: ts.PropertyAssignment[]): ts.ObjectLi
           )
           newProps.push(dirs)
         }
-        dirs.value.elements.push(ts.createObjectLiteral([
+        dirs.initializer.elements.push(ts.createObjectLiteral([
           ts.createPropertyAssignment(
             'name',
             ts.createStringLiteral(name)
